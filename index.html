@@ -5,43 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
   <title>Frontend Mentor | Interactive pricing component</title>
-
+  <link rel="stylesheet" href="styles.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-	body{
-		background-color: skyblue;
-	}
-	.content{
-		font-family: Verdana, Geneva, Tahoma, sans-serif;
-		line-height: 1.6rem;
-		max-width:50rem;
-		color: #ddd;
-		background-color: #333;
-		margin:200px auto;
-		padding:10px 10px;
-	}
+
+
   </style>
 </head>
 <body>
-  <div class="content">
-	  Simple, traffic-based pricing
-	  Sign-up for our 30-day trial. No credit card required. 
+	<div class="content">
+		<div class="Heading">
+			<h1>Simple, traffic-based pricing</h1>
+			<p class="sub-title">Sign-up for our 30-day trial. No credit card required. </p>
+		</div>	
+		
+		<div class="box">
+			<div class="box_top flex-container">
+				<div class="column"><span id="out_viewers">50k </span> Pageviews</div>
+				<div class="column">
+					<span class="price" id="out_price"> 
+					 12$ </span>  /month </div>
+			</div>
+			<div class="sliderdiv">
+				<input type="range" min="0" max="4" value="1" step="1" class="sliderNew" id="myRange">
+			</div>
 
-	  Pageviews
-	  $ /month
+			 
+			<div class="box_bottom">
+				<p class="p_pricing">Monthly Billing
+					<label class="switch_box">
+						<input id="swt_toggle" type="checkbox">
+						<span class="toogle_span"></span>
+					</label>	
+					Yearly Billing 
+					<span class="discount">25%  </span>
+				</p>
+				
+				
+				<div class="flex-container">
+					<div class="column"> 
+						<ul class="no-bullets">
+							<li><image src="images/icon-check.svg" > Unlimited websites			</li>
+							<li><image src="images/icon-check.svg" > 100% data ownership			</li>
+							<li><image src="images/icon-check.svg" > Email reports			</li>
+						</ul>
+					</div>
+					<div class="column"> 
+						<input class="submit_btn" type="submit" name="submit" id="ids" value="Start my trial">
+					</div>		
+				</div>
+			</div>
+		</div>
 
-	  Monthly Billing
-	  Yearly Billing 25% discount
-
-	  Unlimited websites
-	  100% data ownership
-	  Email reports
-
-	  Start my trial
   </div>
   
   
@@ -49,5 +66,51 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <!-- SCRIPT xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx> -->
+  <script>
+	var slider = document.getElementById("myRange");
+	var out_price = document.getElementById("out_price");
+	var out_viewers = document.getElementById("out_viewers");
+	var swt_toogle = document.getElementById("swt_toggle");  
+	var fac_discount = 1;
+	globalThis.s = swt_toogle
+
+	slider.oninput = update_price;
+	swt_toogle.onchange = update_price;
+	
+		
+		// 10K pageviews / $8 per month
+		// 50K pageviews / $12 per month
+		// 100K pageviews / $16 per month
+		// 500k pageviews / $24 per month
+		// 1M pageviews / $36 per month
+
+	function update_price(){
+		(swt_toogle.checked == true) ? fac_discount = 0.75 : fac_discount = 1;
+		console.log("fac:"+fac_discount)
+		pos_slider = slider.value;
+		var x = 0
+		if (pos_slider == 0){
+			x = 8  
+			out_viewers.innerHTML = "10k"
+		}else if (pos_slider == 1){
+			x =   12
+			out_viewers.innerHTML = "50k"		
+		}else if (pos_slider == 2){
+			x =   16
+			out_viewers.innerHTML = "100k"			
+		}else if (pos_slider == 3){
+			x =   24
+			out_viewers.innerHTML = "500k"
+		}else {
+			x =   36
+			out_viewers.innerHTML = "1M"
+		}
+		out_price.innerHTML = `$${x * fac_discount}.00`
+	}
+	</script>
 </body>
+
+
+
 </html>

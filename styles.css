@@ -1,0 +1,249 @@
+/* Colors
+Primary
+    Soft Cyan (Full Slider Bar): hsl(174, 77%, 80%)
+    Strong Cyan (Slider Backround): hsl(174, 86%, 45%)
+    Light Grayish Red (Discount Background): hsl(14, 92%, 95%)
+    Light Red (Discount Text): hsl(15, 100%, 70%)
+    Pale Blue (CTA Text): hsl(226, 100%, 87%)
+Neutral
+    White (Pricing Component Background): hsl (0, 0%, 100%)
+    Very Pale Blue (Main Background): hsl(230, 100%, 99%)
+    Light Grayish Blue (Empty Slider Bar): hsl(224, 65%, 95%)
+    Light Grayish Blue (Toggle Background): hsl(223, 50%, 87%)
+    Grayish Blue (Text): hsl(225, 20%, 60%)
+    Dark Desaturated Blue (Text & CTA Background): hsl(227, 35%, 25%)
+ */
+
+ :root {
+    /* Primary */
+    --Soft_Cyan: hsl(174, 77%, 80%); /*  (Full Slider Bar) */
+    --Strong_Cyan: hsl(174, 86%, 45%); /*(Slider Backround) */
+    --LightGrayishRed: hsl(14, 92%, 95%); /* (Discount Background)  */
+    --LightRed: hsl(15, 100%, 70%); /*    (Discount Text)*/
+    --PaleBlue: hsl(226, 100%, 87%); /* (CTA Text) */
+    /* Neutral */
+    --whitePricing : hsl(0, 0%, 100%); /*(Pricing Component Background) */
+    --VeryPaleBlueMainBkG : hsl(230, 100%, 99%); /* (Main Background) */
+    --LightGrayishBlue1 : hsl(224, 65%, 95%); /* (Empty Slider Bar) */
+    --LightGrayishBlueToogle : hsl(223, 50%, 87%); /* (Toggle Background) */
+    --GrayishBlue: hsl(225, 20%, 60%); /*  (Text) */
+    --DarkDesaturatedBlue : hsl(227, 35%, 25%); /* (Text & CTA Background) */
+  }
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    font-size: 15px;
+    font-weight: 600;
+    /* background-color: skyblue; */
+    background: url(images/bg-pattern.svg) ;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: var(--VeryPaleBlueMainBkG);
+    /* --VeryPaleBlue */
+}
+.content{
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.6rem;
+    max-width:500px;
+    color:var(--GrayishBlue);        
+    margin:30px auto;
+    padding:10px 10px;
+}
+.Heading {
+    background-image: url('images/pattern-circles.svg');
+    /* height: 200px; */
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding:50px 0;
+}
+h1, .sub-title {
+    text-align: center;
+    color: var(--DarkDesaturatedBlue);
+}
+h1{     font-weight: 800;}
+h2 {    font-weight: 600;	}
+
+
+.flex-container{
+    display: flex;
+    /* background-color: #666; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.box{
+    margin-top: 0rem;
+    background-color: var(--whitePricing);
+    /* The optional third value adds a blur effect to the shadow. */
+    /* The optional fourth value defines the spread of the shadow. */
+    box-shadow: 5px 10px 18px 1px #888888;
+    padding: 50px;
+}
+
+.box_top{
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+
+.column{/* Flex item*/
+    width: 100%;
+    margin:10px 10px;
+    border:2px solid transparent ;  /* debug */
+    /* background-color: #888; */
+}
+.box_top .column:nth-child(2){ /* top right */
+    text-align: right;
+}
+
+.box_bottom .column:nth-child(2){  /* box_bottom right */
+    margin:0 auto;
+    text-align: center;
+}
+.submit_btn{
+    margin: 0 auto;
+    border-radius: 25px;
+    background-color:var(--DarkDesaturatedBlue);
+    color: var(--PaleBlue);
+    border: none;
+    height:30px;
+    width:150px;  
+}
+ul.no-bullets {
+      list-style-type: none;
+}
+
+.p_pricing{
+    margin-bottom:3rem;
+}
+
+.price{
+    vertical-align: top;
+    font-size: 2rem;
+    color:var(--DarkDesaturatedBlue);
+
+}
+
+
+.box_bottom{
+    font-size:0.8rem;
+    position: static;
+}
+
+.box_bottom p{
+    
+    text-align: right;
+}
+.sliderdiv{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.sliderNew{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    background: var(--Soft_Cyan);
+    border-radius: 10px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s; 
+}
+
+.sliderNew::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;
+    background-image : url("images/icon-slider.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    /* border: 10px solid transparent; */
+    border-radius: 50%;
+    background-color: var(--Strong_Cyan);
+    
+    /* margin-top: 0px; You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    
+    cursor: pointer;
+}
+.sliderNew::-webkit-slider-thumb:hover {
+    box-shadow: 2px 10px 10px var(--Soft_Cyan); /* Add cool effects to your sliders! */
+
+}
+
+
+.switch_box{
+    display: inline-block;
+    position: relative;
+    width: 42px;
+    height: 22px;
+    background-color: rgba(255,0,0,0);
+    
+}
+
+.switch_box input{
+    height:0;
+    width:0;
+    opacity: 0;
+}
+.toogle_span{
+    cursor: pointer;
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right: 0px;
+    background-color: var(--LightGrayishBlueToogle);
+    border-radius: 10px;
+    -webkit-transition: .4s;
+            transition: .4s;
+}
+.toogle_span::before{
+    content:"";
+    position:absolute;
+    top:3px;
+    left:2px;
+    bottom:3px;
+    width: 16px;
+    background-color: var(--whitePricing); /* #fa0; */
+    border-radius: 50%;
+    -webkit-transition: .4s;
+       transition: .4s;
+}
+
+.switch_box input:checked +  .toogle_span:before {
+    -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+            transform: translateX(20px);
+}
+
+
+.discount{
+    color: var(--LightRed);
+    background-color: var(--LightGrayishRed);
+    border-radius: 10px;
+    padding:0 5px;
+}
+@media (min-width : 600px){
+    .discount::after{
+        content:"discount"
+        }
+}
+@media (max-width : 600px){
+    .flex-container{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .column{
+        /* border:2px dashed black; */
+        text-align: center!important;
+        
+    }
+}
