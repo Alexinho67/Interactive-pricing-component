@@ -238,12 +238,26 @@ ul.no-bullets {
 }
 @media (max-width : 600px){
     .flex-container{
+        position:relative;
         flex-direction: column;
         justify-content: center;
     }
     .column{
         /* border:2px dashed black; */
-        text-align: center!important;
-        
+        text-align: center!important;   
+    }
+    .box_top .column:nth-child(2){
+        /* color: red; */
+        margin-top: 3rem;
+    }
+    .box{
+        position:relative;
+    }
+    .sliderdiv{
+        position:absolute;
+        left:10%;
+        right:10%;
+        top:23%;
+
     }
 }
